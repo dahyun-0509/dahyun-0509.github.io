@@ -89,6 +89,43 @@ em { font-style: italic; color: var(--umber); }
   letter-spacing: 0.15em;
 }
 
+.butterfly {
+  width: 84px;
+  height: 63px;
+  margin: 0 auto 0.5rem;
+  display: block;
+  overflow: visible;
+}
+.butterfly path {
+  fill: var(--umber);
+  opacity: 0.85;
+}
+.butterfly__body {
+  stroke: var(--ink-soft);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.butterfly__wing { transform-origin: 60px 45px; }
+.butterfly__wing--left-lower, .butterfly__wing--right-lower { transform-origin: 60px 50px; }
+
+.butterfly__wing--left, .butterfly__wing--left-lower { animation: flutter-left 3.4s ease-in-out infinite; }
+.butterfly__wing--right, .butterfly__wing--right-lower { animation: flutter-right 3.4s ease-in-out infinite; }
+
+@keyframes flutter-left {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(35deg); }
+}
+@keyframes flutter-right {
+  0%, 100% { transform: rotateY(0deg); }
+  50% { transform: rotateY(-35deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .butterfly__wing, .butterfly__wing--left-lower, .butterfly__wing--right-lower {
+    animation: none;
+  }
+}
+
 .rature {
   margin: 0 auto 1.5rem;
   font-family: var(--display);
